@@ -1,0 +1,1 @@
+const INIT = "INIT";
