@@ -13,7 +13,7 @@ this package contains of
 
 ## ContextProvider widget
 Use it with following prop\
-`Map<Type, Reducer> reducer` and `Widget child`\
+`Map<Type extends Reducer, Reducer> reducer` and `Widget child`\
 ```dart
   ContextProvider(reducer: myReducer, child: MyWidget());
 ```
@@ -23,13 +23,13 @@ the `Type` is implemented class from `Reducer` abstract class provided.
 ## useSelector function
 Use this inside your widget to get the reducer/state data from the state.
 ```dart
-final T myState = useSelector<T>(context)
+final T myState = useSelector<T extends Reducer>(context)
 ```
 where T is implementation of the `Reducer` abstract class.
 
 You can pass another parameter if you decide to listen to the state changes.
 ```dart
-final T myState = useSelector<T>(context, listen: false)
+final T myState = useSelector<T extends Reducer>(context, listen: false)
 ```
 it's true by default.
 
