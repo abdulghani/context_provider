@@ -1,4 +1,4 @@
-class Reducer {
+abstract class Reducer {
   Function _notifyListeners;
   Function _stateDispatch;
   Function _useSelector;

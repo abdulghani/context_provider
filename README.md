@@ -1,14 +1,57 @@
 # context_provider
+Flutter context provider to provide state with reducer combined as map of type and the reducer.\
+along with the useSelector hook and useDispatch hook
 
-A new Flutter package project.
+# Usage
+this package contains of 
+```
+  - ContextProvider Widget
+  - useSelector function
+  - useDispatch function
+  - Reducer abstract class
+```
 
-## Getting Started
+## ContextProvider widget
+Use it with following prop\
+`Map<Type, Reducer> reducer` and `Widget child`
 
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+the `Type` is implemented class from `Reducer` abstract class provided.
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+## useSelector function
+Use this inside your widget to get the reducer/state data from the state.
+`final T myState = useSelector<T>(context)`\
+where T is implementation of the `Reducer` abstract class.
+
+You can pass another parameter if you decide to listen to the state changes.
+`final T myState = useSelector<T>(context, listen: false)`\
+it's true by default.
+
+## useDispatch function
+`final Function dispatch = useDispatch(context)`\
+which `dispatch` function takes arguments of `Map<String, dynamic>` that had `type` key in the action.
+
+you can pass another parameter if you want to listen to changes.\
+`final Function dispatch = useDispatch(context, listen: true)`\
+it's `false` by default.
+
+## Reducer abstract class
+Here's where you implement the state shape/what the state holds in the instance of the reducer.\
+You want to `@override` the dispatch method inside the class and implement your own reducer to handle actions that'll be handled by the reducer instance.\
+```dart
+@override
+void dispatch(Map<String, dynamic> action) async {
+  switch (action["type"]) {
+    case "DO_SOMETHING":
+    // do something with this
+    break;
+    default:
+    break;
+  }
+}
+```
+
+methods that were available from this class is following\
+```
+  - notifyListeners 
+```
+Which `notifyListeners` is used whenever you want to notify the consumer of your state to re-render.

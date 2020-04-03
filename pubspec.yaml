@@ -1,8 +1,8 @@
 name: context_provider
-description: A new Flutter package project.
+description: Flutter context provider
 version: 0.0.1
 author: Abdul Ghani
-homepage:
+homepage: https://github.com/abdulghani/flutter_context_provider
 
 environment:
   sdk: ">=2.7.0 <3.0.0"

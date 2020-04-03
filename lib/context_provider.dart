@@ -6,15 +6,15 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class ContextProvider extends StatelessWidget {
-  ContextProvider({this.states, this.child});
+  ContextProvider({this.reducer, this.child});
 
-  final Map<Type, Reducer> states;
+  final Map<Type, Reducer> reducer;
   final Widget child;
 
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => createStore(this.states),
+      create: (context) => createStore(this.reducer),
       child: this.child,
     );
   }
