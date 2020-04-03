@@ -13,25 +13,36 @@ this package contains of
 
 ## ContextProvider widget
 Use it with following prop\
-`Map<Type, Reducer> reducer` and `Widget child`
+`Map<Type, Reducer> reducer` and `Widget child`\
+```dart
+  ContextProvider(reducer: myReducer, child: MyWidget());
+```
 
 the `Type` is implemented class from `Reducer` abstract class provided.
 
 ## useSelector function
 Use this inside your widget to get the reducer/state data from the state.
-`final T myState = useSelector<T>(context)`\
+```dart
+final T myState = useSelector<T>(context)
+```
 where T is implementation of the `Reducer` abstract class.
 
 You can pass another parameter if you decide to listen to the state changes.
-`final T myState = useSelector<T>(context, listen: false)`\
+```dart
+final T myState = useSelector<T>(context, listen: false)
+```
 it's true by default.
 
 ## useDispatch function
-`final Function dispatch = useDispatch(context)`\
+```dart
+final Function dispatch = useDispatch(context);
+```
 which `dispatch` function takes arguments of `Map<String, dynamic>` that had `type` key in the action.
 
 you can pass another parameter if you want to listen to changes.\
-`final Function dispatch = useDispatch(context, listen: true)`\
+```dart
+final Function dispatch = useDispatch(context, listen: true);
+```
 it's `false` by default.
 
 ## Reducer abstract class
