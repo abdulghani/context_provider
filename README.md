@@ -39,7 +39,7 @@ final Function dispatch = useDispatch(context);
 ```
 which `dispatch` function takes arguments of `Map<String, dynamic>` that had `type` key in the action.
 
-you can pass another parameter if you want to listen to changes.\
+you can pass another parameter if you want to listen to changes.
 ```dart
 final Function dispatch = useDispatch(context, listen: true);
 ```
@@ -47,7 +47,7 @@ it's `false` by default.
 
 ## Reducer abstract class
 Here's where you implement the state shape/what the state holds in the instance of the reducer.\
-You want to `@override` the dispatch method inside the class and implement your own reducer to handle actions that'll be handled by the reducer instance.\
+You want to `@override` the dispatch method inside the class and implement your own reducer to handle actions that'll be handled by the reducer instance.
 ```dart
 @override
 void dispatch(Map<String, dynamic> action) async {
