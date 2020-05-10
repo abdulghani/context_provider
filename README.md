@@ -47,6 +47,34 @@ it's `false` by default.
 
 ## Reducer abstract class
 Here's where you implement the state shape/what the state holds in the instance of the reducer.\
+
+### Full reducer example
+```dart
+import 'package:context_provider/context_provider.dart';
+
+class ProductReducer extends Reducer {
+  Map<int, Map<String, dynamic>> _product = {};
+
+  get product => this._product;
+
+  @override
+  void dispatch(Map<String, dynamic> action) async {
+    switch (action["type"]) {
+      case SOME_ACTION:
+        //  do something here
+        super.notifyListeners();  // notify widgets that listens to this reducer state
+        break;
+      case INIT:
+        // do something else here
+        break;
+      default:
+        break;
+    }
+  }
+}
+```
+
+
 You want to `@override` the dispatch method inside the class and implement your own reducer to handle actions that'll be handled by the reducer instance.
 ```dart
 @override
