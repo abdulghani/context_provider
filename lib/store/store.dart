@@ -9,8 +9,6 @@ class Store extends ChangeNotifier {
   Store(this._states) {
     this._states.forEach((t, state) {
       this._states[t].setNotifier(super.notifyListeners);
-      this._states[t].setSelector(this.useSelector);
-      this._states[t].setStateDispatch(this.dispatch);
       this._states[t].dispatch({"type": INIT});
     });
   }
@@ -21,7 +19,7 @@ class Store extends ChangeNotifier {
     });
   }
 
-  T useSelector<T extends Reducer>() {
+  T getState<T extends Reducer>() {
     return this._states[T];
   }
 }
@@ -32,7 +30,7 @@ Store createStore(Map<Type, Reducer> states) {
 
 T useSelector<T extends Reducer>(BuildContext context, {bool listen = true}) {
   final Store store = Provider.of<Store>(context, listen: listen);
-  return store.useSelector<T>();
+  return store.getState<T>();
 }
 
 Function useDispatch(BuildContext context, {bool listen = false}) {

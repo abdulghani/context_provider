@@ -9,3 +9,7 @@ First release, features:
 
 ## [0.0.3] - Updated description
 - Updated description for this package
+
+## [0.1.0] - Remove in reducer dispatch & share state
+- Remove in-reducer dispatch
+- Remove in-reducer state selector

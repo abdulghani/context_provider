@@ -1,8 +1,8 @@
 name: context_provider
 description: Flutter context provider to provide state with reducer combined as map of type and the reducer. Along with the useSelector hook and useDispatch hook.
-version: 0.0.3+1
+version: 0.1.0
 author: Abdul Ghani
-homepage: https://github.com/abdulghani/flutter_context_provider
+homepage: https://github.com/abdulghani/context_provider
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
